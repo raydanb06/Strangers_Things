@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Posts = () => {
     const [posts, setPosts] = useState([]);
     console.log('posts: ', posts);
+    console.log(typeof(posts));
     
     const fetchPosts = async () => {
         await fetch('https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT/posts')
