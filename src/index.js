@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { Posts } from './components';
+import { Posts, Login } from './components';
 
 const App = () => {
   return <>
@@ -12,6 +12,9 @@ const App = () => {
     </Route>
     <Route path='/posts'>
       <Posts />
+    </Route>
+    <Route path='/login'>
+      <Login />
     </Route>
   </>
 };

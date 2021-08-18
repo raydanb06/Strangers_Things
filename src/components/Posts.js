@@ -17,7 +17,7 @@ const Posts = () => {
     }, []);
 
     return <>
-        <h2 className='post-header'>Posts</h2>
+        <h1 className='post-header'>Posts</h1>
         {
             posts.map((post, idx) => {
                 return <div key={idx} className='post'>
