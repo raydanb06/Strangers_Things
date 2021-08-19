@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const Register = () => {
+const Register = (props) => {
+  const { setToken } = props;
   const [ newUsername, setNewUsername ] = useState('');
   const [ newPassword, setNewPassword ] = useState('');
   const [ newPasswordCheck, setNewPasswordCheck ] = useState('');

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 import Register from './Register';
+import Login from './Login'
 
-const Login = (props) => {
+const Account = (props) => {
   const { setToken } = props;
 
   const [ username, setUsername ] = useState('');
@@ -36,7 +37,7 @@ const Login = (props) => {
 
   return <>
     <h1>LoginPage</h1>
-    <Register />
+    <Register setToken={setToken}/>
 
     <h2 className='login'>Login</h2>
     <form onSubmit={handleLoginSubmit}>
@@ -55,4 +56,4 @@ const Login = (props) => {
   </>
 };
 
-export default Login;
+export default Account;
