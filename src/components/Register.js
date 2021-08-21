@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router'
+
+const { REACT_APP_BASE_URL } = process.env;
 
 const Register = (props) => {
   const { setToken } = props;
   const [ newUsername, setNewUsername ] = useState('');
   const [ newPassword, setNewPassword ] = useState('');
   const [ newPasswordCheck, setNewPasswordCheck ] = useState('');
+  const history = useHistory();
 
   const handleRegisterSubmit = (ev) => {
     ev.preventDefault();
     console.log(newUsername, typeof newUsername);
     console.log(newPassword);
     console.log(newPasswordCheck);
-    fetch('https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT/users/register', {
+    fetch(`${REACT_APP_BASE_URL}/users/register`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -27,6 +31,9 @@ const Register = (props) => {
     .then(result => {
       setToken(result.data.token),
       console.log(result);
+      if (result.data.token) {
+        history.push('/');
+      }
     })
     .catch(console.error);
     setNewUsername('');
@@ -52,7 +59,7 @@ const Register = (props) => {
         ev => setNewPasswordCheck(ev.target.value)
       }></input>
 
-      <button type='submit'>Submit</button>
+      <button type='submit'>Register</button>
     </form>
   </>
 }
