@@ -1,5 +1,7 @@
+import { result } from 'lodash';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { callAPI } from '../util';
 
 const { REACT_APP_BASE_URL } = process.env;
 
@@ -9,31 +11,27 @@ const Login = (props) => {
   const [ password, setPassword ] = useState('');
   const history = useHistory();
 
-  const handleLoginSubmit = (ev) => {
+  const handleLoginSubmit = async (ev) => {
     ev.preventDefault();
     console.log(username);
     console.log(password);
-    fetch(`${REACT_APP_BASE_URL}/users/login`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+    
+    const loginObj = await callAPI({
+      url: 'users/login',
+      method: 'POST',
+      body: {
         user: {
           username: `${username}`,
           password: `${password}`
         }
-      })
-    })
-    .then(response => response.json())
-    .then(result => {
-      setToken(result.data.token),
-      console.log(result);
-      if (result.data.token) {
+      }
+    });
+    if (loginObj.data) {
+      setToken(loginObj.data.token);
+      if (loginObj.data.token) {
         history.push('/');
       }
-    })
-    .catch(console.error);
+    }
     setUsername('');
     setPassword('');
   };
