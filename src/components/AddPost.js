@@ -5,8 +5,12 @@ const AddPost = () => {
   const [ description, setDescription ] = useState('');
   const [ price, setPrice ] = useState('');
 
+  const handleAddPost = async (ev) => {
+    ev.preventDefault();
+  };
+
   return <>
-    <form>
+    <form onSubmit={handleAddPost}>
       <input placeholder='Title' type='text' value={title} onChange={
         ev => setTitle(ev.target.value)
       }></input>
