@@ -6,7 +6,9 @@ import { callAPI } from '../util';
 const { REACT_APP_BASE_URL } = process.env;
 
 const Login = (props) => {
-  const { setToken, username, setUsername, password, setPassword } = props;
+  const { setToken } = props;
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
   const history = useHistory();
 
   const handleLoginSubmit = async (ev) => {
@@ -22,12 +24,14 @@ const Login = (props) => {
         }
       }
     });
+
     if (loginObj.data) {
       setToken(loginObj.data.token);
       if (loginObj.data.token) {
         history.push('/');
       }
     }
+
     setUsername('');
     setPassword('');
   };

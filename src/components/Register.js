@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
+import { callAPI } from '../util';
 
 const { REACT_APP_BASE_URL } = process.env;
 
@@ -10,32 +11,27 @@ const Register = (props) => {
   const [ newPasswordCheck, setNewPasswordCheck ] = useState('');
   const history = useHistory();
 
-  const handleRegisterSubmit = (ev) => {
+  const handleRegisterSubmit = async (ev) => {
     ev.preventDefault();
-    // console.log(newUsername, typeof newUsername);
-    // console.log(newPassword);
-    // console.log(newPasswordCheck);
-    fetch(`${REACT_APP_BASE_URL}/users/register`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+
+    const registerObj = await callAPI({
+      url: 'users/register',
+      method: 'POST',
+      body: {
         user: {
           username: `${newUsername}`,
           password: `${newPassword}`
         }
-      })
-    })
-    .then(response => response.json())
-    .then(result => {
-      setToken(result.data.token),
-      console.log(result);
-      if (result.data.token) {
+      }
+    });
+
+    if (registerObj.data) {
+      setToken(registerObj.data.token);
+      if (registerObj.data.token) {
         history.push('/');
       }
-    })
-    .catch(console.error);
+    }
+
     setNewUsername('');
     setNewPassword('');
     setNewPasswordCheck('');

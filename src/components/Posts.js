@@ -9,11 +9,10 @@ const Posts = (props) => {
 
   const fetchPosts = async () => {
     const postObj = await callAPI({
-      url: 'POSTS',
+      url: 'posts',
       method: 'GET',
       token: `${token}`
     });
-    console.log(postObj);
     if (postObj.data) {
       setPosts(postObj.data.posts);
     }
