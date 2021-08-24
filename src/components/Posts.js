@@ -9,12 +9,12 @@ const Posts = (props) => {
   return <>
     <h1 className='post-header'>Posts</h1>
     {
-      token ? <AddPost /> : null
+      token ? <AddPost token={token} fetchPosts={fetchPosts}/> : null
     }
     {
       posts.map((post, idx) => {
         return <div key={idx} className='post'>
-          {post.title}, {post.price}
+          {post.title}, {post.description}, {post.price}
         </div>
       })
     }

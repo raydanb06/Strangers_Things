@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { callAPI } from '../util';
 
-const AddPost = () => {
+const AddPost = ({ token, fetchPosts }) => {
   const [ title, setTitle] = useState('');
   const [ description, setDescription ] = useState('');
   const [ price, setPrice ] = useState('');
@@ -8,7 +9,20 @@ const AddPost = () => {
   const handleAddPost = async (ev) => {
     ev.preventDefault();
 
-    
+    const AddPostResp = await callAPI({
+      url: 'posts',
+      method: 'POST',
+      token: `${token}`,
+      body: {
+        post: {
+          title: `${title}`,
+          description: `${description}`,
+          price: `${price}`
+        }
+      }
+    });
+
+    await fetchPosts();
   };
 
   return <>
