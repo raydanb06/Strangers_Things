@@ -7,6 +7,8 @@ const AddPost = () => {
 
   const handleAddPost = async (ev) => {
     ev.preventDefault();
+
+    
   };
 
   return <>
