@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { callAPI } from '../util';
 
 const { REACT_APP_BASE_URL } = process.env;
 
-const Posts = () => {
+const Posts = (props) => {
+  const { token } = props;
   const [posts, setPosts] = useState([]);
-  console.log('posts: ', posts);
-    
+
   const fetchPosts = async () => {
-    fetch(`${REACT_APP_BASE_URL}/posts`)
-    .then(response => response.json())
-    .then(result => { setPosts(result.data.posts) })
-    .catch(console.error);
+    const postObj = await callAPI({
+      url: 'POSTS',
+      method: 'GET',
+      token: `${token}`
+    });
+    console.log(postObj);
+    if (postObj.data) {
+      setPosts(postObj.data.posts);
+    }
 };
 
   useEffect(() => {

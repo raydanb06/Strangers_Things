@@ -6,7 +6,6 @@ import { Posts, Account, Homepage } from './components';
 
 const App = () => {
   const [ token, setToken ] = useState('');
-  console.log(token);
 
   return <>
     <Link to='/'>Home</Link> | <Link to='/posts'>Posts</Link> | <Link to='/account'>Login/Register</Link>
@@ -14,7 +13,7 @@ const App = () => {
       <Homepage token={token}/>
     </Route>
     <Route path='/posts'>
-      <Posts />
+      <Posts token={token}/>
     </Route>
     <Route path='/account'>
       <Account setToken={setToken}/>

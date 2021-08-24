@@ -12,9 +12,9 @@ const Register = (props) => {
 
   const handleRegisterSubmit = (ev) => {
     ev.preventDefault();
-    console.log(newUsername, typeof newUsername);
-    console.log(newPassword);
-    console.log(newPasswordCheck);
+    // console.log(newUsername, typeof newUsername);
+    // console.log(newPassword);
+    // console.log(newPasswordCheck);
     fetch(`${REACT_APP_BASE_URL}/users/register`, {
       method: "POST",
       headers: {
