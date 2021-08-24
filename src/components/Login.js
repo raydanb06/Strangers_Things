@@ -1,9 +1,6 @@
-import { result } from 'lodash';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { callAPI } from '../util';
-
-const { REACT_APP_BASE_URL } = process.env;
 
 const Login = (props) => {
   const { setToken } = props;

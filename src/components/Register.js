@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router'
 import { callAPI } from '../util';
 
-const { REACT_APP_BASE_URL } = process.env;
-
 const Register = (props) => {
   const { setToken } = props;
   const [ newUsername, setNewUsername ] = useState('');

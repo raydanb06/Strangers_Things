@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { callAPI } from '../util';
-
-const { REACT_APP_BASE_URL } = process.env;
+import AddPost from './AddPost';
 
 const Posts = (props) => {
   const { token } = props;
@@ -24,6 +23,9 @@ const Posts = (props) => {
 
   return <>
     <h1 className='post-header'>Posts</h1>
+    {
+      token ? <AddPost /> : null
+    }
     {
       posts.map((post, idx) => {
         return <div key={idx} className='post'>
