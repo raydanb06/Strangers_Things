@@ -15,8 +15,8 @@ const Posts = (props) => {
     await fetchPosts();
   };
 
-  const handleMessage = async () => {
-    console.log('Message Clicked');
+  const handleMessage = () => {
+    console.log('Clicked')
   }
 
   return <>

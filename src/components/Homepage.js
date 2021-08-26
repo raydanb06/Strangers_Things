@@ -2,10 +2,8 @@ import React from 'react';
 
 const Homepage = (props) => {
   const { token } = props;
-  console.log('token: ', token);
-
-  token ? console.log('got a token') : console.log('no token');
-
+  console.log(token);
+  
   return <>
     <h1>Homepage</h1>
     {

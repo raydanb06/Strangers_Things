@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { Posts, Account, Homepage } from './components';
+import { Posts, Account, Homepage, Profile } from './components';
 import { callAPI } from './util';
 
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
     }, [ token ]);
 
   return <>
-    <Link to='/'>Home</Link> | <Link to='/posts'>Posts</Link> | <Link to='/account'>Login/Register</Link>
+    <Link to='/'>Home</Link> | <Link to='/posts'>Posts</Link> | <Link to='/account'>Login/Register</Link> | <Link to='/profile'>Profile</Link>
     <Route exact path='/'>
       <Homepage token={token}/>
     </Route>
@@ -34,6 +34,9 @@ const App = () => {
     </Route>
     <Route path='/account'>
       <Account setToken={setToken}/>
+    </Route>
+    <Route path='/profile'>
+      <Profile token={token}/>
     </Route>
   </>
 };
