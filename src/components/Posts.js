@@ -4,7 +4,6 @@ import AddPost from './AddPost';
 
 const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
-  const history = useHistory();
 
   const handleDelete = async (postId) => {
     const deleteObj = await callAPI({
