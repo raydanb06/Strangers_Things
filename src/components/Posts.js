@@ -2,6 +2,7 @@ import React from 'react';
 import { callAPI } from '../util';
 import AddPost from './AddPost';
 import { useHistory } from 'react-router';
+import { Messaging } from '../components'
 
 const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
@@ -35,6 +36,7 @@ const Posts = (props) => {
         </div>
       })
     }
+    <Messaging />
     </>
 };
 

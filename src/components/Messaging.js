@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Messaging = () => {
+const Messaging = (props) => {
+  const { token } = props;
+
   return <>
     <h1>Messaging Form</h1>
   </>

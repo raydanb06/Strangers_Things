@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import Register from './Register';
-import Login from './Login'
+import { Register, Login } from '../components';
 
 const Account = (props) => {
   const { setToken } = props;
