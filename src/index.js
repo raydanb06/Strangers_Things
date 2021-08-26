@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { Posts, Account, Homepage } from './components';
+import { Posts, Account, Homepage, Messaging } from './components';
 import { callAPI } from './util';
 
 const App = () => {
@@ -34,6 +34,9 @@ const App = () => {
     </Route>
     <Route path='/account'>
       <Account setToken={setToken}/>
+    </Route>
+    <Route path='/messaging'>
+      <Messaging />
     </Route>
   </>
 };
