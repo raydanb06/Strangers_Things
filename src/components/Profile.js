@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Profile = () => {
+const Profile = (props) => {
+  const { token } = props;
   
   return <>
     <h1>Profile</h1>
