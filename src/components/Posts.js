@@ -27,6 +27,9 @@ const Posts = (props) => {
           {
             post.isAuthor && <button onClick={() => handleDelete(post._id)}>Delete</button>
           }
+          {
+            !post.isAuthor && token && <button onClick={() => console.log('clicked')}>Message</button>
+          }
         </div>
       })
     }
