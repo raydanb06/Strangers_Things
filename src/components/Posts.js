@@ -1,12 +1,11 @@
 import React from 'react';
 import { callAPI } from '../util';
 import AddPost from './AddPost';
-import { useHistory } from 'react-router';
+import { Route } from 'react-router';
 import { Messaging } from '../components'
 
 const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
-  const history = useHistory();
 
   const handleDelete = async (postId) => {
     const deleteObj = await callAPI({
@@ -17,6 +16,10 @@ const Posts = (props) => {
     console.log('deleteObj: ', deleteObj);
     await fetchPosts();
   };
+
+  const handleMessage = async () => {
+    return
+  }
 
   return <>
     <h1 className='post-header'>Posts</h1>
@@ -36,7 +39,9 @@ const Posts = (props) => {
         </div>
       })
     }
-    <Messaging />
+    <Route path='messaging'>
+      <Messaging />
+    </Route>
     </>
 };
 
