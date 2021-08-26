@@ -1,11 +1,10 @@
 import React from 'react';
 import { callAPI } from '../util';
 import AddPost from './AddPost';
-import { Route } from 'react-router';
-import { Messaging } from '../components'
 
 const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
+  const history = useHistory();
 
   const handleDelete = async (postId) => {
     const deleteObj = await callAPI({
@@ -18,7 +17,7 @@ const Posts = (props) => {
   };
 
   const handleMessage = async () => {
-    return
+    console.log('Message Clicked');
   }
 
   return <>
@@ -34,15 +33,11 @@ const Posts = (props) => {
             post.isAuthor && <button onClick={() => handleDelete(post._id)}>Delete</button>
           }
           {
-            !post.isAuthor && token && <button onClick={() => console.log('clicked')}>Message</button>
+            !post.isAuthor && token && <button onClick={() => handleMessage()}>Message</button>
           }
-            <Route path='messaging'>
-              <Messaging postId={post._id}/>
-            </Route>
         </div>
       })
     }
-
     </>
 };
 
