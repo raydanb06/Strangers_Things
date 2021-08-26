@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
       fetchPosts()
-    }, []);
+    }, [ token ]);
 
   return <>
     <Link to='/'>Home</Link> | <Link to='/posts'>Posts</Link> | <Link to='/account'>Login/Register</Link>
