@@ -36,12 +36,13 @@ const Posts = (props) => {
           {
             !post.isAuthor && token && <button onClick={() => console.log('clicked')}>Message</button>
           }
+            <Route path='messaging'>
+              <Messaging postId={post._id}/>
+            </Route>
         </div>
       })
     }
-    <Route path='messaging'>
-      <Messaging />
-    </Route>
+
     </>
 };
 
