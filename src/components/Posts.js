@@ -1,9 +1,11 @@
 import React from 'react';
 import { callAPI } from '../util';
 import AddPost from './AddPost';
+import { useHistory } from 'react-router';
 
 const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
+  const useHistory = useHistory();
 
   const handleDelete = async (postId) => {
     const deleteObj = await callAPI({
