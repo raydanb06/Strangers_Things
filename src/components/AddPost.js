@@ -23,6 +23,9 @@ const AddPost = ({ token, fetchPosts }) => {
     });
 
     await fetchPosts();
+    setTitle('');
+    setDescription('');
+    setPrice('');
   };
 
   return <>
