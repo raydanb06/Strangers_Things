@@ -25,7 +25,7 @@ const App = () => {
     }, [ token ]);
 
   return <>
-    <Link to='/'>Home</Link> | <Link to='/posts'>Posts</Link> | <Link to='/account'>Login/Register</Link> | <Link to='/profile'>Profile</Link>
+    <Link to='/'>Home</Link> | <Link to='/posts'>Posts</Link> | <Link to='/account'>Login/Register</Link> | { token ? <Link to='/profile'>Profile</Link> : ''}
     <Route exact path='/'>
       <Homepage token={token}/>
     </Route>
