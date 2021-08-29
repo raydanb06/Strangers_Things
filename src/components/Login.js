@@ -28,6 +28,7 @@ const Login = (props) => {
         history.push('/');
       }
     }
+    
     setUsername('');
     setPassword('');
   };

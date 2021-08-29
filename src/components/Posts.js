@@ -1,23 +1,10 @@
 import React from 'react';
-import { callAPI } from '../util';
 import AddPost from './AddPost';
+
+import { PostSingle } from './';
 
 const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
-
-  const handleDelete = async (postId) => {
-    const deleteObj = await callAPI({
-      url: `posts/${postId}`,
-      method: 'DELETE',
-      token: `${token}`
-    });
-    console.log('deleteObj: ', deleteObj);
-    await fetchPosts();
-  };
-
-  const handleMessage = () => {
-    console.log('Clicked')
-  }
 
   return <>
     <h1 className='post-header'>Posts</h1>
@@ -26,15 +13,7 @@ const Posts = (props) => {
     }
     {
       posts.map((post, idx) => {
-        return <div key={post._id} className='post'>
-          {post.title}, {post.description}, {post.price}
-          {
-            post.isAuthor && <button onClick={() => handleDelete(post._id)}>Delete</button>
-          }
-          {
-            !post.isAuthor && token && <button onClick={() => handleMessage()}>Message</button>
-          }
-        </div>
+        return <PostSingle key={post._id} post={post} token={token} fetchPosts={fetchPosts} />
       })
     }
     </>

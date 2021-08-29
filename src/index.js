@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { Posts, Account, Homepage, Profile } from './components';
+import { Posts, Account, Homepage, Profile, PostView } from './components';
 import { callAPI } from './util';
 
 const App = () => {
@@ -29,13 +29,16 @@ const App = () => {
     <Route exact path='/'>
       <Homepage token={token}/>
     </Route>
-    <Route path='/posts'>
+    <Route exact path='/posts'>
       <Posts token={token} posts={posts} fetchPosts={fetchPosts}/>
     </Route>
-    <Route path='/account'>
+    <Route exact path='/posts/:postId'>
+      <PostView token={token} posts={posts}/>
+    </Route>
+    <Route exact path='/account'>
       <Account setToken={setToken}/>
     </Route>
-    <Route path='/profile'>
+    <Route exact path='/profile'>
       <Profile token={token}/>
     </Route>
   </>
