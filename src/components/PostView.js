@@ -7,7 +7,6 @@ const PostView = (props) => {
   const { token, posts } = props;
   const { postId } = useParams();
   const post = posts.find(post => post._id === postId);
-  console.log(post);
 
   return <>
     <h1 className='header'>Post Viewing</h1>
