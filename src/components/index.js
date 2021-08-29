@@ -7,3 +7,4 @@ export { default as AddPost } from './AddPost';
 export { default as Profile } from './Profile';
 export { default as PostSingle } from './PostSingle';
 export { default as PostView } from './PostView';
+export { default as CommentForm } from './CommentForm';
