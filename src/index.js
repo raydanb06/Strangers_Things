@@ -21,7 +21,7 @@ const App = () => {
 };
 
   useEffect(() => {
-      fetchPosts()
+      fetchPosts();
     }, [ token ]);
 
   return <>
