@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
-import { callApi } from '../util';
+import { callAPI } from '../util';
 
-const CommentForm = () => {
+const CommentForm = (props) => {
+  const { token, post } = props;
   const [ content, setContent ] = useState('');
   
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    
+    try {
+      const message = await callAPI({
+        method: 'post',
+        url: `posts/${post._id}/messages`,
+        token: `${token}`,
+        body: {
+          message: {
+            content
+          }
+        }
+      })
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return <>

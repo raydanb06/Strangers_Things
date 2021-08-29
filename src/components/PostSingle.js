@@ -18,13 +18,16 @@ const PostSingle = (props) => {
   return <>
     <div key={post._id} className='post'>
       {post.title}, {post.description}, {post.price}
+      {
+        post.isAuthor && <button onClick={() => handleDelete(post._id)}>Delete</button>
+      }
+      {
+        token && !post.isAuthor && <Link to={`/posts/${post._id}`}>Message</Link>
+      }
+      {
+        token && post.isAuthor && <Link to={`/posts/${post._id}`}>View Details</Link>
+      }
     </div>
-    {
-      post.isAuthor && <button onClick={() => handleDelete(post._id)}>Delete</button>
-    }
-    {
-      token && !post.isAuthor && <Link to={`/posts/${post._id}`}>Message</Link>
-    }
   </>
 }
 
