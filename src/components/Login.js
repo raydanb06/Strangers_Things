@@ -21,13 +21,17 @@ const Login = (props) => {
         }
       }
     });
-
-    if (loginObj.data) {
-      setToken(loginObj.data.token);
-      if (loginObj.data.token) {
-        history.push('/');
+    try {
+      if (loginObj.data) {
+        setToken(loginObj.data.token);
+        if (loginObj.data.token) {
+          history.push('/');
+        }
       }
+    } catch (error) {
+      console.error(error);
     }
+
     
     setUsername('');
     setPassword('');
