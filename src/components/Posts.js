@@ -7,7 +7,7 @@ const Posts = (props) => {
   const { token, posts, fetchPosts } = props;
 
   return <>
-    <h1 className='post-header'>Posts</h1>
+    <h1 className='header'>Posts</h1>
     {
       token ? <AddPost token={token} fetchPosts={fetchPosts}/> : null
     }

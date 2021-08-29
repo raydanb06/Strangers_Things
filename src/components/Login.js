@@ -38,7 +38,7 @@ const Login = (props) => {
   };
 
   return <>
-    <h2 className='login'>Login</h2>
+    <h2 className='header'>Login</h2>
     <form onSubmit={handleLoginSubmit}>
       <label htmlFor='username'>Username:</label>
       <input placeholder='Username' type='text' value={username} onChange={

@@ -5,7 +5,7 @@ const Homepage = (props) => {
   console.log(token);
   
   return <>
-    <h1>Homepage</h1>
+    <h1 class='header'>Homepage</h1>
     {
       token ? 
       <div>You are logged in.</div> 

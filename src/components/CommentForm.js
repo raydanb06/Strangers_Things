@@ -21,10 +21,11 @@ const CommentForm = (props) => {
     } catch (error) {
       console.error(error);
     }
+    setContent('');
   }
 
   return <>
-    <h2>Comment</h2>
+    <h2 className='header'>Comment</h2>
     <form onSubmit={handleSubmit}>
       <input placeholder='Comment Here' type='text' value={content} onChange={(ev) => setContent(ev.target.value)}/>
       <button type='submit'>Add Comment</button>

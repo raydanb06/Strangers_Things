@@ -27,8 +27,8 @@ const Profile = (props) => {
   }, [ token ]);
 
   return <>
-    <h1>Profile</h1>
-    <h2>My Posts</h2>
+    <h1 className='header'>Profile</h1>
+    <h2 className='header'>My Posts</h2>
     {
       myPosts.map((post, idx) => {
         return <div key={post._id} className='post'>
@@ -36,7 +36,7 @@ const Profile = (props) => {
         </div>
       })
     }
-    <h2>Messages</h2>
+    <h2 className='header'>Messages</h2>
     {
       myMessages.map((message,idx) => {
         return <div key={message._id} className='message'>

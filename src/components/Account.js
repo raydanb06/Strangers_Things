@@ -6,7 +6,7 @@ const Account = (props) => {
   const { setToken } = props;
 
   return <>
-    <h1>LoginPage</h1>
+    <h1 className='header'>LoginPage</h1>
     <Register setToken={setToken}/>
     <Login setToken={setToken}/>
   </>

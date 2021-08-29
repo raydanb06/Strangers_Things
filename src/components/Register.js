@@ -36,7 +36,7 @@ const Register = (props) => {
   };
 
   return <>
-    <h2 className='register'>Register</h2>
+    <h2 className='header'>Register</h2>
     <form onSubmit={handleRegisterSubmit}>
       <label htmlFor='new-username'>Username:</label>
       <input placeholder='New Username' type='text' value={newUsername} onChange={

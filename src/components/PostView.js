@@ -10,7 +10,7 @@ const PostView = (props) => {
   console.log(post);
 
   return <>
-    <h1>Post Viewing</h1>
+    <h1 className='header'>Post Viewing</h1>
     <PostSingle post={post} />
     {
       token && post.isAuthor && post.messages.map(comment => <div key={comment._id}>
