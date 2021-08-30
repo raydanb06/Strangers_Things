@@ -6,11 +6,16 @@ const PostSingle = (props) => {
   const { post, token, fetchPosts } = props;
 
   const handleDelete = async (postId) => {
-    const deleteObj = await callAPI({
-      url: `posts/${postId}`,
-      method: 'DELETE',
-      token: `${token}`
-    });
+    try {
+      const deleteObj = await callAPI({
+        url: `posts/${postId}`,
+        method: 'DELETE',
+        token: `${token}`
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
     
     await fetchPosts();
   };

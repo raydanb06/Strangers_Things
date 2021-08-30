@@ -12,22 +12,25 @@ const Register = (props) => {
   const handleRegisterSubmit = async (ev) => {
     ev.preventDefault();
 
-    const registerObj = await callAPI({
-      url: 'users/register',
-      method: 'POST',
-      body: {
-        user: {
-          username: `${newUsername}`,
-          password: `${newPassword}`
+    try {
+      const registerObj = await callAPI({
+        url: 'users/register',
+        method: 'POST',
+        body: {
+          user: {
+            username: `${newUsername}`,
+            password: `${newPassword}`
+          }
+        }
+      });
+      if (registerObj.data) {
+        setToken(registerObj.data.token);
+        if (registerObj.data.token) {
+          history.push('/');
         }
       }
-    });
-
-    if (registerObj.data) {
-      setToken(registerObj.data.token);
-      if (registerObj.data.token) {
-        history.push('/');
-      }
+    } catch (error) {
+      console.error(error);
     }
 
     setNewUsername('');

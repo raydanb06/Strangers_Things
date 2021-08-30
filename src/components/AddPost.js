@@ -9,18 +9,23 @@ const AddPost = ({ token, fetchPosts }) => {
   const handleAddPost = async (ev) => {
     ev.preventDefault();
 
-    const AddPostResp = await callAPI({
-      url: 'posts',
-      method: 'POST',
-      token: `${token}`,
-      body: {
-        post: {
-          title: `${title}`,
-          description: `${description}`,
-          price: `${price}`
+    try {
+      const AddPostResp = await callAPI({
+        url: 'posts',
+        method: 'POST',
+        token: `${token}`,
+        body: {
+          post: {
+            title: `${title}`,
+            description: `${description}`,
+            price: `${price}`
+          }
         }
-      }
-    });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
 
     await fetchPosts();
     setTitle('');

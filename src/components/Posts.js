@@ -8,7 +8,6 @@ const Posts = (props) => {
   const [ searchTerm, setSearchTerm ] = useState('');
 
   const filteredPosts = posts.filter(post => post.title.includes(searchTerm));
-  console.log(filteredPosts);
 
   return <>
     <h1 className='header'>Posts</h1>

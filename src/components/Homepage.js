@@ -2,9 +2,9 @@ import React from 'react';
 
 const Homepage = (props) => {
   const { token } = props;
-  
+
   return <>
-    <h1 className='header'>Homepage</h1>
+    <h1 className='header'>Stranger's Things Homepage</h1>
     {
       token ? 
       <div>You are logged in.</div> 

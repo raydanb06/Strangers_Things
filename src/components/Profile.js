@@ -7,24 +7,23 @@ const Profile = (props) => {
   const [ myMessages, setMyMessages ] = useState([]);
 
   const loadProfile = async () => {
-    const profile = await callAPI({
-      url: 'users/me',
-      method: 'GET',
-      token: `${token}`
-    })
-
-    setMyPosts(profile.data.posts);
-    setMyMessages(profile.data.messages);
-
-    console.log(myPosts);
-    console.log(myMessages);
+    try {
+      const profile = await callAPI({
+        url: 'users/me',
+        method: 'GET',
+        token: `${token}`
+      })
+  
+      setMyPosts(profile.data.posts);
+      setMyMessages(profile.data.messages);
+    } catch (error) {
+      console.error(error);
+    }
   }
-
-
 
   useEffect(() => {
     loadProfile()
-  }, [ token ]);
+  }, []);
 
   return <>
     <h1 className='header'>Profile</h1>

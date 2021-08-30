@@ -11,17 +11,17 @@ const Login = (props) => {
   const handleLoginSubmit = async (ev) => {
     ev.preventDefault();
     
-    const loginObj = await callAPI({
-      url: 'users/login',
-      method: 'POST',
-      body: {
-        user: {
-          username: `${username}`,
-          password: `${password}`
-        }
-      }
-    });
     try {
+      const loginObj = await callAPI({
+        url: 'users/login',
+        method: 'POST',
+        body: {
+          user: {
+            username: `${username}`,
+            password: `${password}`
+          }
+        }
+      });
       if (loginObj.data) {
         setToken(loginObj.data.token);
         if (loginObj.data.token) {
