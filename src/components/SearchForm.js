@@ -9,7 +9,7 @@ const SearchForm = (props) => {
   }
 
   return <>
-    <form onSubmit={handleSearch}>
+    <form className='search-form' onSubmit={handleSearch}>
       <input placeholder='Search' type='text' value={searchTerm} onChange={(ev) => setSearchTerm(ev.target.value)}/>
       <button type='submit'>Search</button>
     </form>

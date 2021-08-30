@@ -21,3 +21,12 @@ div {
   padding: 5px;
   color: purple;
 }
+
+.search-form {
+  padding-bottom: 5px;
+}
+
+.post-link {
+  color: blue;
+  padding: 5px;
+}

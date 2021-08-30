@@ -27,10 +27,10 @@ const PostSingle = (props) => {
         post.isAuthor && <button onClick={() => handleDelete(post._id)}>Delete</button>
       }
       {
-        token && !post.isAuthor && <Link to={`/posts/${post._id}`}>Message</Link>
+        token && !post.isAuthor && <Link className='post-link' to={`/posts/${post._id}`}>Message</Link>
       }
       {
-        token && post.isAuthor && <Link to={`/posts/${post._id}`}>View Details</Link>
+        token && post.isAuthor && <Link className='post-link' to={`/posts/${post._id}`}>View Details</Link>
       }
     </div>
   </>
